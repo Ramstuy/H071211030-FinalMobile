@@ -12,13 +12,13 @@ public interface ApiService {
     Call<MovieResponse> getNowPlaying();
 
     @GET("movie/popular?api_key=39725c0f5856c3e5447f0d93ffc805fc")
-    Call<MovieResponse> getPopularMovie(@Query("api_key") String api_key);
+    Call<MovieResponse> getPopularMovie();
 
     @GET("movie/top_rated?api_key=39725c0f5856c3e5447f0d93ffc805fc")
-    Call<MovieResponse> getTopRatedMovie(@Query("api_key") String api_key);
+    Call<MovieResponse> getTopRatedMovie();
 
     @GET("movie/upcoming?api_key=39725c0f5856c3e5447f0d93ffc805fc")
-    Call<MovieResponse> getUpcoming(@Query("api_key") String api_key);
+    Call<MovieResponse> getUpcoming();
 
     @GET ("tv/airing_today?api_key=39725c0f5856c3e5447f0d93ffc805fc")
     Call<TvShowsResponse> getAiringToday();
