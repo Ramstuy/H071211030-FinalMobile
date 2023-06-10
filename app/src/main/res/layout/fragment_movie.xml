@@ -15,7 +15,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_marginStart="10dp"
             android:orientation="vertical"
             >
@@ -24,7 +24,7 @@
                 android:id="@+id/tv_tengah"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/mitr_light"
+                android:fontFamily="@font/mitr_extralight"
                 android:text="Popular"
                 android:textColor="@color/white"
                 android:textSize="20sp"
@@ -51,7 +51,7 @@
                 android:id="@+id/tv_bawah"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/mitr_light"
+                android:fontFamily="@font/mitr_extralight"
                 android:text="Top Rated"
                 android:textColor="@color/white"
                 android:textSize="20sp"

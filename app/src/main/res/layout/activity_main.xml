@@ -7,10 +7,37 @@
     tools:context=".activities.MainActivity"
     android:background="@color/mainc">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_alignParentTop="true"
+        app:cardBackgroundColor="@android:color/transparent"
+        android:id="@+id/top_bar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/close">
+
+            <TextView
+                android:id="@+id/tv_top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/mitr_light"
+                android:gravity="center"
+                android:text="@string/title_movie"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
     <FrameLayout
         android:id="@+id/frame_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/top_bar"
         android:layout_above="@+id/notif_bar"
         android:layout_marginBottom="0dp" />
 
@@ -63,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:gravity="center"
-                android:text="Movie"
+                android:text="@string/title_movie"
                 android:textColor="@color/white" />
         </LinearLayout>
 
@@ -85,7 +112,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tv Shows"
+                android:text="@string/title_tv"
                 android:textColor="@color/white"
                 android:gravity="center"
 
@@ -107,7 +134,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Favorite"
+                android:text="@string/title_favorite"
                 android:textColor="@color/white"
                 android:gravity="center"
                 />
