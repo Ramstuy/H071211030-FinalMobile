@@ -2,6 +2,7 @@ package com.example.h071211030_finalmobile.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -19,6 +20,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+FragmentManager fragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager = getSupportFragmentManager();
+        Fragment fragment = new fragment_movie();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragment_movie fragment = new fragment_movie();
         fragmentTransaction.replace(R.id.frame_main, fragment);
         fragmentTransaction.commit();
     }

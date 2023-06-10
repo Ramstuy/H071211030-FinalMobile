@@ -42,4 +42,57 @@ public class Movie {
 
     @SerializedName("vote_count")
     private int voteCount;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getBackdropPath() {
+        return backdropPath;
+    }
+
+    public int[] getGenreIds() {
+        return genreIds;
+    }
+
+    public String getOriginalLanguage() {
+        return originalLanguage;
+    }
+
+    public String getOriginalTitle() {
+        return originalTitle;
+    }
+
+    public String getOverview() {
+        return overview;
+    }
+
+    public double getPopularity() {
+        return popularity;
+    }
+
+    public String getPosterPath() {
+        return posterPath;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public boolean isVideo() {
+        return video;
+    }
+
+    public double getVoteAverage() {
+        return voteAverage;
+    }
+
+    public int getVoteCount() {
+        return voteCount;
+    }
 }
+
