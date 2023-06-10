@@ -75,7 +75,8 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:orientation="vertical"
-            android:layout_marginEnd="80dp">
+            android:layout_marginEnd="80dp"
+            android:id="@+id/ll_movie">
 
             <ImageView
                 android:id="@+id/btn_Movie"
@@ -99,7 +100,8 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:orientation="vertical"
-            android:layout_marginEnd="80dp">
+            android:layout_marginEnd="80dp"
+            android:id="@+id/ll_tv">
 
             <ImageView
                 android:id="@+id/btn_Tv"
@@ -122,7 +124,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/ll_favorite">
 
             <ImageView
                 android:id="@+id/btn_Favorite"

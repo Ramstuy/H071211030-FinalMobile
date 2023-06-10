@@ -5,4 +5,5 @@
     <color name="mainc">#0F1014</color>
     <color name="close">#18191F</color>
     <color name="gold">#FFD700</color>
+    <color name="grey">#808080</color>
 </resources>

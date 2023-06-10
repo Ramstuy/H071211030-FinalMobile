@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.TvShowsFragment"
     android:background="@color/mainc">
 
     <LinearLayout
@@ -16,16 +15,16 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_marginStart="10dp"
             android:orientation="vertical"
             >
 
             <TextView
-                android:id="@+id/tv_tengah"
+                android:id="@+id/tv_tengahTS"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/mitr_light"
+                android:fontFamily="@font/mitr_extralight"
                 android:text="Popular"
                 android:textColor="@color/white"
                 android:textSize="20sp"
@@ -33,7 +32,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:id="@+id/rvPopPoster"
+                android:id="@+id/rvPopPosterTS"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:listitem="@layout/item_movie1"
@@ -49,17 +48,17 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_bawah"
+                android:id="@+id/tv_bawahTS"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/mitr_light"
+                android:fontFamily="@font/mitr_extralight"
                 android:text="Top Rated"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
             <androidx.recyclerview.widget.RecyclerView
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:id="@+id/rvTopRated"
+                android:id="@+id/rvTopRatedTS"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:listitem="@layout/item_movie2"

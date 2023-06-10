@@ -42,4 +42,56 @@ public class TvShows {
 
     @SerializedName("vote_count")
     private int voteCount;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getBackdropPath() {
+        return backdropPath;
+    }
+
+    public String getFirstAirDate() {
+        return firstAirDate;
+    }
+
+    public int[] getGenreIds() {
+        return genreIds;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String[] getOriginalCountry() {
+        return originalCountry;
+    }
+
+    public String getOriginalLanguage() {
+        return originalLanguage;
+    }
+
+    public String getOriginalName() {
+        return originalName;
+    }
+
+    public String getOverview() {
+        return overview;
+    }
+
+    public double getPopularity() {
+        return popularity;
+    }
+
+    public String getPosterPath() {
+        return posterPath;
+    }
+
+    public double getVoteAverage() {
+        return voteAverage;
+    }
+
+    public int getVoteCount() {
+        return voteCount;
+    }
 }

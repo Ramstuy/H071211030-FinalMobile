@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.h071211030_finalmobile.API.ApiConfig;
@@ -33,7 +34,6 @@ public class fragment_movie extends Fragment {
     RecyclerView rvTop;
     ImageView ivBackdrop;
     TextView tvName;
-
     public fragment_movie() {
     }
     @Override
@@ -53,6 +53,8 @@ public class fragment_movie extends Fragment {
 
         rvPoster.setHasFixedSize(true);
         rvTop.setHasFixedSize(true);
+
+
         ApiConfig.getApiService().getPopularMovie().enqueue(new Callback<MovieResponse>() {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
@@ -60,16 +62,27 @@ public class fragment_movie extends Fragment {
                     List<Movie> list = response.body().getResults();
                     PosterAdapter posterAdapter = new PosterAdapter(list);
                     rvPoster.setAdapter(posterAdapter);
+                }
+            }
+            @Override
+            public void onFailure(Call<MovieResponse> call, Throwable t) {
+                System.out.println("yahaha turu dek 1");
+            }
+        });
+
+        ApiConfig.getApiService().getTopRatedMovie().enqueue(new Callback<MovieResponse>() {
+            @Override
+            public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
+                if(response.isSuccessful() && response.body() != null){
+                    List<Movie> list = response.body().getResults();
                     RatedAdapter ratedAdapter = new RatedAdapter(list);
                     rvTop.setLayoutManager(new GridLayoutManager(getActivity(), 3));
                     rvTop.setAdapter(ratedAdapter);
                 }
-
             }
-
             @Override
             public void onFailure(Call<MovieResponse> call, Throwable t) {
-                System.out.println("yahaha turu dek");
+                System.out.println("yahaha turu dek 2");
             }
         });
     }
