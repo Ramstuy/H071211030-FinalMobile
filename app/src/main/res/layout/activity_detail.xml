@@ -8,27 +8,19 @@
     android:background="@color/mainc"
     tools:context=".activities.DetailActivity">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="500dp"
-        android:src="@drawable/backdrop"
-        />
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:src="@drawable/back"
-        app:tint="@color/white"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginBottom="500dp">
 
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:src="@drawable/favorite"
-        app:tint="@color/white"
-        android:layout_marginStart="370dp"
-        android:layout_marginTop="10dp"/>
+        <ImageView
+            android:id="@+id/iv_detBackdrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/backdrop"
+            />
+
+    </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -80,6 +72,7 @@
                                     android:layout_height="wrap_content"
                                     android:ellipsize="marquee"
                                     android:marqueeRepeatLimit="marquee_forever"
+                                    android:layout_marginStart="5dp"
                                     android:singleLine="true"
                                     android:text="Spider-Man: Across the Spider-Verse"
                                     android:textColor="@android:color/white"
@@ -98,29 +91,34 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentStart="true"
                                     android:layout_centerInParent="true"
-                                    android:text="Rating :"
+                                    android:text="Rating"
                                     android:textColor="@android:color/white"
-                                    android:textSize="14sp" />
+                                    android:textSize="14sp"
+                                    android:layout_marginStart="5dp"/>
+
+                                <ImageView
+                                    android:id="@+id/ivStar"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_toEndOf="@id/tvVote"
+                                    android:src="@drawable/star"
+                                    app:tint="@color/gold" />
 
                                 <TextView
                                     android:id="@+id/tvRating"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerInParent="true"
-                                    android:layout_marginStart="5dp"
-                                    android:layout_toEndOf="@id/tvVote"
+
+                                    android:layout_toEndOf="@id/ivStar"
                                     android:singleLine="true"
+                                    android:text="4,95"
                                     android:textColor="@android:color/white"
                                     android:textSize="14sp" />
 
                             </RelativeLayout>
 
-                            <RatingBar
-                                android:id="@+id/ratingBar"
-                                style="@style/Widget.AppCompat.RatingBar.Small"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:progressTint="@color/gold" />
 
                         </LinearLayout>
 
@@ -140,7 +138,7 @@
                     app:cardElevation="3dp">
 
                     <ImageView
-                        android:id="@+id/imgPhoto"
+                        android:id="@+id/iv_poster"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
@@ -190,29 +188,31 @@
 
                     </RelativeLayout>
 
-                    <RelativeLayout
+
+                    <androidx.cardview.widget.CardView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp">
+                        android:layout_marginTop="5dp"
+                        >
 
-                        <TextView
-                            android:id="@+id/tvKP"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Kepopuleran :"
-                            android:textColor="@android:color/white"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="6dp">
 
-                        <TextView
-                            android:id="@+id/tvPopularity"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/tvKP"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
+                            <TextView
+                                android:id="@+id/tvMovieOrTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/archivo"
+                                android:text="Movie or Tv Shows"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
 
-                    </RelativeLayout>
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -223,7 +223,7 @@
                             android:id="@+id/tvDesc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Sinopsis :"
+                            android:text="Overview :"
                             android:textColor="@android:color/white"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -245,6 +245,27 @@
 
         </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
 
+    </androidx.core.widget.NestedScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/back"
+            app:tint="@color/white"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:id="@+id/iv_favor"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/favorite2"
+            app:tint="@color/white"
+            android:layout_marginStart="340dp"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
 </RelativeLayout>
