@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="3dp">
+                android:layout_marginTop="4dp">
 
                 <TextView
                     android:id="@+id/tv_title"
@@ -47,10 +47,43 @@
                         android:src="@drawable/more"
                         app:tint="@color/white" />
 
+
             </LinearLayout>
 
 
         </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="4dp"
+        android:orientation="horizontal"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="2dp"
+        >
 
+        <ImageView
+            android:id="@+id/ivStar"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_gravity="center"
+            android:src="@drawable/star"
+            app:tint="@color/gold"
+            />
+
+        <TextView
+            android:id="@+id/tvRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4,95"
+            android:textColor="@android:color/white"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </com.google.android.material.card.MaterialCardView>

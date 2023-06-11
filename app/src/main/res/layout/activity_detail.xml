@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/backdrop"
-            />
+            android:scaleType="centerCrop" />
+
 
     </LinearLayout>
 
@@ -68,7 +69,7 @@
 
                                 <TextView
                                     android:id="@+id/tvName"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:ellipsize="marquee"
                                     android:marqueeRepeatLimit="marquee_forever"
@@ -77,7 +78,8 @@
                                     android:text="Spider-Man: Across the Spider-Verse"
                                     android:textColor="@android:color/white"
                                     android:textSize="18sp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:layout_weight="1"/>
 
                             </LinearLayout>
 
@@ -109,8 +111,8 @@
                                     android:id="@+id/tvRating"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_centerInParent="true"
 
+                                    android:layout_centerInParent="true"
                                     android:layout_toEndOf="@id/ivStar"
                                     android:singleLine="true"
                                     android:text="4,95"

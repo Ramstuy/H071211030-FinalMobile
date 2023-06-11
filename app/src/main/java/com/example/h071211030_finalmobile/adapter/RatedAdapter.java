@@ -33,6 +33,7 @@ public class RatedAdapter extends RecyclerView.Adapter<RatedAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull RatedAdapter.ViewHolder holder, int position) {
         Movie modelMovie = listRated.get(position);
+        holder.rating.setText(String.valueOf(modelMovie.getVoteAverage()));
         holder.title.setText(modelMovie.getTitle());
         Glide.with(holder.itemView.getContext()).load("https://image.tmdb.org/t/p/w500" + modelMovie.getBackdropPath()).into(holder.thumbnail);
 
@@ -58,13 +59,14 @@ public class RatedAdapter extends RecyclerView.Adapter<RatedAdapter.ViewHolder>{
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView thumbnail;
-        TextView title;
+        TextView title, rating;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             thumbnail = itemView.findViewById(R.id.iv_thumbnail);
             title = itemView.findViewById(R.id.tv_title);
+            rating = itemView.findViewById(R.id.tvRating);
         }
     }
 

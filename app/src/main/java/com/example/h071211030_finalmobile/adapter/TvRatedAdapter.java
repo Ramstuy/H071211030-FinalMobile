@@ -34,9 +34,9 @@ public class TvRatedAdapter extends RecyclerView.Adapter<TvRatedAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         TvShows modelMovie = listRatedTv.get(position);
+        holder.rating.setText(String.valueOf(modelMovie.getVoteAverage()));
         holder.title.setText(modelMovie.getName());
         Glide.with(holder.itemView.getContext()).load("https://image.tmdb.org/t/p/w500" + modelMovie.getBackdropPath()).into(holder.thumbnail);
-
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(holder.itemView.getContext(), DetailActivity.class);
             intent.putExtra("movie_backdrop", modelMovie.getBackdropPath());
@@ -59,13 +59,14 @@ public class TvRatedAdapter extends RecyclerView.Adapter<TvRatedAdapter.ViewHold
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView thumbnail;
-        TextView title;
+        TextView title, rating;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             thumbnail = itemView.findViewById(R.id.iv_thumbnail);
             title = itemView.findViewById(R.id.tv_title);
+            rating = itemView.findViewById(R.id.tvRating);
         }
     }
 
