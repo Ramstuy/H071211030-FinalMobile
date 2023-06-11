@@ -4,8 +4,8 @@ import android.database.Cursor;
 
 import java.util.ArrayList;
 
-public class MappingHelper {public static ArrayList<List> mapCursorToArrayList(Cursor cursor) {
-    ArrayList<List> favorite = new ArrayList<>();
+public class MappingHelper {public static ArrayList<FavoList> mapCursorToArrayList(Cursor cursor) {
+    ArrayList<FavoList> favorite = new ArrayList<>();
     while (cursor.moveToNext()) {
         int id =
                 cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseContract.FavoriteColumns._ID));
@@ -22,7 +22,7 @@ public class MappingHelper {public static ArrayList<List> mapCursorToArrayList(C
         String overview =
                 cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.FavoriteColumns.OVERVIEW));
 
-        favorite.add(new List(id, backdrop, poster, name, rating, release_date, overview));
+        favorite.add(new FavoList(id, backdrop, poster, name, rating, release_date, overview));
     }
     return favorite;
 }

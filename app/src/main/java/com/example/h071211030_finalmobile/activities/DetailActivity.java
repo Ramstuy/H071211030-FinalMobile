@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,12 +16,11 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.h071211030_finalmobile.R;
 import com.example.h071211030_finalmobile.SQLite.DatabaseContract;
-import com.example.h071211030_finalmobile.SQLite.List;
+import com.example.h071211030_finalmobile.SQLite.FavoList;
 import com.example.h071211030_finalmobile.SQLite.ListHelper;
 import com.example.h071211030_finalmobile.SQLite.MappingHelper;
 
 import java.lang.ref.WeakReference;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -73,7 +72,9 @@ public class DetailActivity extends AppCompatActivity {
         overview.setText(movie_overview);
 
         back = findViewById(R.id.iv_back);
+        Intent intent = new Intent();
         back.setOnClickListener(v -> {
+            setResult(RESULT_OK, intent);
             finish();
         });
 
@@ -82,7 +83,7 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void ambilDatabase() {
-        new LoadNotflixAsync(this, favorlist -> {
+        new LoadFavorites(this, favorlist -> {
             if (favorlist.size() == 0) {
                 favorite.setOnClickListener(view -> {
                     ContentValues values = new ContentValues();
@@ -96,10 +97,10 @@ public class DetailActivity extends AppCompatActivity {
 
                     long result = ListHelper.insert(values);
                     if (result > 0) {
-                        Toast.makeText(DetailActivity.this, "Berhasil Menambahkan Favorite", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DetailActivity.this, "Added to Favorites", Toast.LENGTH_SHORT).show();
                         ambilDatabase();
                     } else {
-                        Toast.makeText(DetailActivity.this, "Failed to add data", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DetailActivity.this, "something went wrong", Toast.LENGTH_SHORT).show();
                     }
                 });
             } else {
@@ -111,18 +112,18 @@ public class DetailActivity extends AppCompatActivity {
     public void deleteFavorit() {
         long result = ListHelper.deleteById(String.valueOf(movie_id));
         if (result > 0) {
-            Toast.makeText(this, "Berhasil Menghapus Favorite", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Removed from Favorites", Toast.LENGTH_SHORT).show();
             ambilDatabase();
         } else {
-            Toast.makeText(this, "Failed to delete data", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "something went wrong", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private static class LoadNotflixAsync {
+    private static class LoadFavorites {
         private final WeakReference<Context> weakContext;
-        private final WeakReference<DetailActivity.LoadNotflixCallback> weakCallback;
+        private final WeakReference<DetailActivity.LoadCallback> weakCallback;
 
-        private LoadNotflixAsync(Context context, DetailActivity.LoadNotflixCallback callback) {
+        private LoadFavorites(Context context, DetailActivity.LoadCallback callback) {
             weakContext = new WeakReference<>(context);
             weakCallback = new WeakReference<>(callback);
         }
@@ -135,14 +136,14 @@ public class DetailActivity extends AppCompatActivity {
                 ListHelper listHelper = ListHelper.getInstance(context);
                 listHelper.open();
                 Cursor listCursor = ListHelper.queryById(item_id);
-                ArrayList<List> favort = MappingHelper.mapCursorToArrayList(listCursor);
+                ArrayList<FavoList> favort = MappingHelper.mapCursorToArrayList(listCursor);
                 handler.post(() -> weakCallback.get().postExecute(favort));
                 System.out.println(favort.size());
             });
         }
     }
 
-    interface LoadNotflixCallback {
-        void postExecute(ArrayList<List> favorlist);
+    interface LoadCallback {
+        void postExecute(ArrayList<FavoList> favorlist);
     }
 }

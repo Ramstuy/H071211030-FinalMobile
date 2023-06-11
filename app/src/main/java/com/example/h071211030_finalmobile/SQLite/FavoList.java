@@ -5,12 +5,12 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-public class List implements Parcelable {
+public class FavoList implements Parcelable {
     private int id;
     private String backdrop, poster, name, rating, release_date, overview;
-    public List() {
+    public FavoList() {
     }
-    public List(int id, String backdrop, String poster, String name, String rating, String release_date, String overview) {
+    public FavoList(int id, String backdrop, String poster, String name, String rating, String release_date, String overview) {
         this.id = id;
         this.backdrop = backdrop;
         this.poster = poster;
@@ -19,7 +19,7 @@ public class List implements Parcelable {
         this.release_date = release_date;
         this.overview = overview;
     }
-    protected List(Parcel in) {
+    protected FavoList(Parcel in) {
         id = in.readInt();
         backdrop = in.readString();
         poster = in.readString();
@@ -28,13 +28,13 @@ public class List implements Parcelable {
         release_date = in.readString();
         overview = in.readString();
     }
-    public static final Creator<List> CREATOR = new Creator<List>() {
+    public static final Creator<FavoList> CREATOR = new Creator<FavoList>() {
         @Override
-        public List createFromParcel(Parcel in) {
-            return new List(in);
+        public FavoList createFromParcel(Parcel in) {
+            return new FavoList(in);
         }@Override
-        public List[] newArray(int size) {
-            return new List[size];
+        public FavoList[] newArray(int size) {
+            return new FavoList[size];
         }
     };
 
